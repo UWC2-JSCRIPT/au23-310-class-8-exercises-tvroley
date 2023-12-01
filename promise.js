@@ -25,12 +25,8 @@ const randomNumberJudge = new Promise(function(resolve, reject) {
 
 randomNumberJudge.then(function() {
   console.log('success');
-});
-
-randomNumberJudge.catch(function() {
+}).catch(function() {
   console.log('fail');
-});
-
-randomNumberJudge.finally(function() {
+}).finally(function() {
   console.log('complete');
 });
