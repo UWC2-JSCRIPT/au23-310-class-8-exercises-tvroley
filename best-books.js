@@ -2,6 +2,7 @@ const formEl = document.getElementById('best-books-form');
 const yearEl = document.getElementById('year');
 const monthEl = document.getElementById('month');
 const dateEl = document.getElementById('date');
+const booksContainer = document.getElementById('books-container');
 
 formEl.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -23,13 +24,14 @@ formEl.addEventListener('submit', function(e) {
     .then(function(responseJson) {
       console.log(responseJson);
       const books = responseJson.results.books;
-      let book = books[0];
-      let author = book.author;
-      let description = book.description;
-      let title = book.title;
-      const bookEl = document.createElement('p');
-      bookEl.innerText = `${title} by ${author}: ${description}`;
-      const booksContainer = document.getElementById('books-container');
-      booksContainer.appendChild(bookEl);
+      for(let i = 0; i < 5; i++) {
+        const book = books[i];
+        const author = book.author;
+        const description = book.description;
+        const title = book.title;
+        const bookEl = document.createElement('p');
+        bookEl.innerText = `${title} by ${author}\n${description}`;
+        booksContainer.appendChild(bookEl);
+      }
     });
   });
