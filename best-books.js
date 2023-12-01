@@ -15,8 +15,7 @@ formEl.addEventListener('submit', function(e) {
 
   const BASE_URL = `https://api.nytimes.com/svc/books/v3/lists/${fullDate}/${list}.json`;
 
-  const url = `${BASE_URL}?offset=20&api-key=${API_KEY}`;
-  debugger;
+  const url = `${BASE_URL}?api-key=${API_KEY}`;
   fetch(url)
     .then(function(data) {
       return data.json();
