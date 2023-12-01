@@ -20,7 +20,13 @@ fetch(url)
     document.getElementById('article-snippet').innerText = snippet;
 
     const articleLink = article.web_url;
-    document.getElementById('article-link').setAttribute('href', articleLink);
+    const articleLinkEl = document.getElementById('article-link');
+    articleLinkEl.setAttribute('href', articleLink);
+    
+    const byLineEl = document.createElement('p');
+    const byLine = article.byline.original;
+    articleLinkEl.insertAdjacentElement('afterend', byLineEl);
+    byLineEl.innerText = byLine;
 
     if (article.multimedia.length > 0) {
       const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
