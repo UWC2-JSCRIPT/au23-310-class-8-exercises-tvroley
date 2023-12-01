@@ -12,12 +12,15 @@ fetch(url)
 
     let article = responseJson.response.docs[0];
     console.log(article);
-
+    
     const mainHeadline = article.headline.main;
     document.getElementById('article-title').innerText = mainHeadline;
 
     const snippet = article.snippet;
     document.getElementById('article-snippet').innerText = snippet;
+
+    const articleLink = article.web_url;
+    document.getElementById('article-link').setAttribute('href', articleLink);
 
     if (article.multimedia.length > 0) {
       const imgUrl = `https://www.nytimes.com/${article.multimedia[0].url}`;
