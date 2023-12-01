@@ -20,7 +20,6 @@ const randomNumberJudge = new Promise(function(resolve, reject) {
     } else {
       reject();
     }
-    console.log('complete');
   }, 1000);
 });
 
@@ -30,4 +29,8 @@ randomNumberJudge.then(function() {
 
 randomNumberJudge.catch(function() {
   console.log('fail');
+});
+
+randomNumberJudge.finally(function() {
+  console.log('complete');
 });
