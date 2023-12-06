@@ -31,7 +31,10 @@ formEl.addEventListener('submit', function(e) {
         const title = book.title;
         const bookEl = document.createElement('p');
         bookEl.innerText = `${title} by ${author}\n${description}`;
+        const bookImageEl = document.createElement('img');
+        bookImageEl.src = book.book_image;
         booksContainer.appendChild(bookEl);
+        booksContainer.appendChild(bookImageEl);
       }
     });
   });
